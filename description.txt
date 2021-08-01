@@ -1,0 +1,1 @@
+Useful library for some of my (Tomat's) mods. Free for anyone to use. See the homepage for actual code.

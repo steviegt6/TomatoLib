@@ -1,0 +1,4 @@
+displayName = Tomato Lib
+author = Tomat
+version = 1.0.0
+homepage = https://www.github.com/Steviegt6/TomatoLib
