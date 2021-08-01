@@ -1,5 +1,6 @@
 using System;
 using Terraria.ModLoader;
+using TomatoLib.Core.Drawing;
 using TomatoLib.Core.Logging;
 using TomatoLib.Core.Reflection;
 using TomatoLib.Core.Utilities.Logging;
@@ -15,6 +16,7 @@ namespace TomatoLib
             ExecutePrivately(() =>
             {
                 ReflectionCache.Instance = new ReflectionCache();
+                GlowMaskRepository.Instance = new GlowMaskRepository();
             });
         }
 
@@ -32,6 +34,9 @@ namespace TomatoLib
             ExecutePrivately(() =>
             {
                 ReflectionCache.Instance = null;
+
+                GlowMaskRepository.Instance.RemoveGlowMasks();
+                GlowMaskRepository.Instance = null;
             });
         }
 
