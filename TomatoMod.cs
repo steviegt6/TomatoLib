@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Reflection;
+using MonoMod.RuntimeDetour;
+using MonoMod.RuntimeDetour.HookGen;
 using Terraria.ModLoader;
 using TomatoLib.Core.Drawing;
 using TomatoLib.Core.Logging;
@@ -10,6 +14,9 @@ namespace TomatoLib
     public class TomatoMod : Mod
     {
         public IModLogger ModLogger { get; protected set; }
+
+        public List<(MethodInfo, Delegate)> DelegatesToRemove = new();
+        public List<Hook> HooksToRemove = new();
 
         public TomatoMod()
         {
@@ -30,6 +37,15 @@ namespace TomatoLib
         public override void Unload()
         {
             base.Unload();
+
+            foreach ((MethodInfo method, Delegate callback) in DelegatesToRemove)
+                HookEndpointManager.Unmodify(method, callback);
+
+            foreach (Hook hook in HooksToRemove)
+                hook.Undo();
+
+            DelegatesToRemove.Clear();
+            HooksToRemove.Clear();
 
             ExecutePrivately(() =>
             {
