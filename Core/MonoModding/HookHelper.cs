@@ -28,7 +28,7 @@ namespace TomatoLib.Core.MonoModding
 
         /// <summary>
         ///     Creates a <see cref="Hook"/> that gets applied to the specified <paramref name="modifiedMethod"/>. <br />
-        ///     Used for method detouring..
+        ///     Used for method detouring.
         /// </summary>
         /// <param name="modifiedMethod">The method to modify.</param>
         /// <param name="modifyingMethod">The method doing the modifying.</param>
