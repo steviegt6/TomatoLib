@@ -32,6 +32,9 @@ namespace TomatoLib
             base.Load();
 
             ModLogger = new ModLogger(Logger);
+
+            // This is a temporary fix for some methods in HookHelper.
+            ExecutePrivately(MonoModHooks.RequestNativeAccess);
         }
 
         public override void Unload()
