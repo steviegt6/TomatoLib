@@ -15,8 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Common\Utilities\" />
     <Folder Include="Content\UI\Elements\" />
     <Folder Include="Core\MonoModding\" />
+    <Folder Include="Core\Utilities\Localization\" />
+    <Folder Include="Assets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Tomlet">
+      <HintPath>lib\Tomlet.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

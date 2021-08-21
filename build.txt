@@ -2,3 +2,4 @@ displayName = Tomato Lib
 author = Tomat
 version = 1.0.1
 homepage = https://www.github.com/Steviegt6/TomatoLib
+dllReferences = Tomlet

@@ -103,7 +103,7 @@ namespace TomatoLib.Core.Reflection
             (TReturn)typeof(TType).GetCachedField(field).GetValue(instance);
 
         public TReturn GetPropertyValue<TType, TReturn>(TType instance, string property) =>
-            (TReturn)typeof(TType).GetCachedField(property).GetValue(instance);
+            (TReturn)typeof(TType).GetCachedProperty(property).GetValue(instance);
 
         public void SetFieldValue<TType>(TType instance, string field, object fieldValue = null) =>
             typeof(TType).GetCachedField(field).SetValue(instance, fieldValue);
