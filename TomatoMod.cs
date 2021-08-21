@@ -4,9 +4,11 @@ using System.Reflection;
 using MonoMod.RuntimeDetour;
 using MonoMod.RuntimeDetour.HookGen;
 using Terraria.ModLoader;
+using TomatoLib.Core.Compatibility.Calls;
 using TomatoLib.Core.Drawing;
 using TomatoLib.Core.Logging;
 using TomatoLib.Core.Reflection;
+using TomatoLib.Core.Utilities.Compatibility.Calls;
 using TomatoLib.Core.Utilities.Logging;
 
 namespace TomatoLib
@@ -14,6 +16,8 @@ namespace TomatoLib
     public class TomatoMod : Mod
     {
         public IModLogger ModLogger { get; protected set; }
+
+        public virtual IModCaller CallHandler { get; protected set; } = new DefaultModCaller();
 
         public List<(MethodInfo, Delegate)> DelegatesToRemove = new();
         public List<Hook> HooksToRemove = new();
@@ -58,6 +62,8 @@ namespace TomatoLib
                 GlowMaskRepository.Instance = null;
             });
         }
+
+        public override object Call(params object[] args) => CallHandler.HandleCall(this, args);
 
         private void ExecutePrivately(Action action)
         {

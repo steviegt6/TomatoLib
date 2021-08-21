@@ -16,7 +16,9 @@
 
   <ItemGroup>
     <Folder Include="Content\UI\Elements\" />
+    <Folder Include="Core\Compatibility\Calls\" />
     <Folder Include="Core\MonoModding\" />
+    <Folder Include="Core\Utilities\Compatibility\Calls\" />
   </ItemGroup>
 
 </Project>
