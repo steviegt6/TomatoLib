@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using TomatoLib.Core.Drawing;
 
 namespace TomatoLib.Common.Systems.DrawEffects
 {
@@ -31,24 +32,22 @@ namespace TomatoLib.Common.Systems.DrawEffects
         {
             // Draw all IDrawEffect instances
 
-            // Start sprite-batch
-            Main.spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null,
+            SpriteBatchSnapshot snapshot = new(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null,
                 Main.GameViewMatrix.ZoomMatrix);
 
+            using DisposableSpriteBatch spriteBatch = new(Main.spriteBatch, snapshot, false);
             // Call PreDrawAll separately
             // as we want it to be ran before
             // actual instances are drawn
             foreach (IDrawEffect drawEffect in DrawEffects)
-                drawEffect.PreDrawAll(Main.spriteBatch);
+                drawEffect.PreDrawAll(spriteBatch.SpriteBatch);
 
             foreach (IDrawEffect drawEffect in DrawEffects.Where(drawEffect =>
-                drawEffect.PreDraw(Main.spriteBatch)))
+                drawEffect.PreDraw(spriteBatch.SpriteBatch)))
             {
-                drawEffect.Draw(Main.spriteBatch);
-                drawEffect.PostDraw(Main.spriteBatch);
+                drawEffect.Draw(spriteBatch.SpriteBatch);
+                drawEffect.PostDraw(spriteBatch.SpriteBatch);
             }
-
-            Main.spriteBatch.End();
         }
     }
 }
