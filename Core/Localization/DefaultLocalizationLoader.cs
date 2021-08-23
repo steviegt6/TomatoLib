@@ -5,8 +5,8 @@ using MonoMod.Utils;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using TomatoLib.Common.Utilities;
+using TomatoLib.Common.Utilities.Extensions;
 using TomatoLib.Core.Localization.Parsers;
-using TomatoLib.Core.Utilities.Extensions;
 using TomatoLib.Core.Utilities.Localization;
 
 namespace TomatoLib.Core.Localization

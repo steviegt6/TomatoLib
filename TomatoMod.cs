@@ -5,6 +5,7 @@ using log4net;
 using MonoMod.RuntimeDetour;
 using MonoMod.RuntimeDetour.HookGen;
 using Terraria.ModLoader;
+using TomatoLib.Common.Utilities.Extensions;
 using TomatoLib.Core.Compatibility.Calls;
 using TomatoLib.Core.Drawing;
 using TomatoLib.Core.Localization;
@@ -12,7 +13,6 @@ using TomatoLib.Core.Logging;
 using TomatoLib.Core.MonoModding;
 using TomatoLib.Core.Reflection;
 using TomatoLib.Core.Utilities.Compatibility.Calls;
-using TomatoLib.Core.Utilities.Extensions;
 using TomatoLib.Core.Utilities.Localization;
 using TomatoLib.Core.Utilities.Logging;
 

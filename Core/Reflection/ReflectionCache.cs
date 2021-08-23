@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using TomatoLib.Core.Utilities.Extensions;
+using TomatoLib.Common.Utilities.Extensions;
 using TomatoLib.Core.Utilities.Reflection;
 
 namespace TomatoLib.Core.Reflection

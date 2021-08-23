@@ -4,8 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ModLoader;
+using TomatoLib.Common.Utilities.Extensions;
 using TomatoLib.Core.Utilities.Drawing;
-using TomatoLib.Core.Utilities.Extensions;
 
 // design based on the split mod's design lol
 namespace TomatoLib.Core.Drawing

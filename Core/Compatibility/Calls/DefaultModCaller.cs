@@ -30,5 +30,13 @@ namespace TomatoLib.Core.Compatibility.Calls
 
         public void AddCaller(ICallHandler handler) =>
             CallHandlers[handler.Accessor.ToLower(CultureInfo.InvariantCulture)] = handler;
+
+        public static void AssertArguments(IEnumerable<object> objects, params Type[] types)
+        {
+            List<object> objectsList = objects.ToList();
+
+            if (types.Where((t, i) => t != objectsList[i].GetType()).Any())
+                throw new ArgumentException("Invalid type passed.");
+        }
     }
 }

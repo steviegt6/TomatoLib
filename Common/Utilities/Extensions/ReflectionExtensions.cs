@@ -3,7 +3,7 @@ using System.Reflection;
 using TomatoLib.Core.Reflection;
 using TomatoLib.Core.Utilities.Reflection;
 
-namespace TomatoLib.Core.Utilities.Extensions
+namespace TomatoLib.Common.Utilities.Extensions
 {
     public static class ReflectionExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TomatoLib.Core.Utilities.Extensions
+namespace TomatoLib.Common.Utilities.Extensions
 {
     public static class ArrayExtensions
     {
