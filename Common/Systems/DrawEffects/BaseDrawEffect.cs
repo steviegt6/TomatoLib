@@ -33,8 +33,6 @@ namespace TomatoLib.Common.Systems.DrawEffects
         {
         }
 
-        public virtual void Update()
-        {
-        }
+        public virtual void Update() => position += velocity;
     }
 }
