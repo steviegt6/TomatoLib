@@ -8,6 +8,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Graphics;
+using TomatoLib.Common.Utilities.Extensions;
 
 namespace TomatoLib.Core.Drawing
 {
@@ -19,16 +20,18 @@ namespace TomatoLib.Core.Drawing
         protected readonly bool BeganPrior;
 
         // TODO: Is ref needed here?
-        public DisposableSpriteBatch(SpriteBatch spriteBatch, SpriteBatchSnapshot snapshot, bool began)
+        public DisposableSpriteBatch(SpriteBatch spriteBatch, SpriteBatchSnapshot snapshot, bool? began = null)
         {
-            if (began)
+            bool realBegan = began ?? SpriteBatch.GetFieldValue<SpriteBatch, bool>("beginCalled");
+
+            if (realBegan)
                 spriteBatch.End();
 
             snapshot.BeginSpriteBatch(spriteBatch);
 
             CachedSnapshot = SpriteBatchSnapshot.FromSpriteBatch(spriteBatch);
             SpriteBatch = spriteBatch;
-            BeganPrior = began;
+            BeganPrior = realBegan;
         }
 
         public void Draw(Texture2D texture, Vector2 position, Color color) =>

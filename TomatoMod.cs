@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using log4net;
 using MonoMod.RuntimeDetour;
@@ -72,7 +73,7 @@ namespace TomatoLib
             foreach ((MethodInfo method, Delegate callback) in DelegatesToRemove)
                 HookEndpointManager.Unmodify(method, callback);
 
-            foreach (Hook hook in HooksToRemove)
+            foreach (Hook hook in HooksToRemove.Where(hook => hook.IsApplied))
                 hook.Undo();
 
             DelegatesToRemove.Clear();
