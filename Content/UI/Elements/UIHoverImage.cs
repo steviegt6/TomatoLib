@@ -1,4 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿#region License
+// Copyright (C) 2021 TML team, TML contributors, Tomat, and TomatoLib Contributors
+// MIT License according to tModLoader's License
+#endregion
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;

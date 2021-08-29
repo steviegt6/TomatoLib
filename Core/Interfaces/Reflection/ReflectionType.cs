@@ -1,6 +1,11 @@
-﻿using System.Reflection;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
 
-namespace TomatoLib.Core.Utilities.Reflection
+using System.Reflection;
+
+namespace TomatoLib.Core.Interfaces.Reflection
 {
     /// <summary>
     ///     Types of expected cache-able reflection-associated types.

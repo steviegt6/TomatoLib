@@ -8,10 +8,13 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Terraria.ModLoader;
-using TomatoLib.Core.Utilities.Compatibility.Calls;
+using TomatoLib.Core.Interfaces.Compatibility.Calls;
 
-namespace TomatoLib.Core.Compatibility.Calls
+namespace TomatoLib.Core.Implementation.Compatibility.Calls
 {
+    /// <summary>
+    ///     Default implementation of <see cref="IModCaller"/> that all <see cref="TomatoMod"/>s use by default.
+    /// </summary>
     public class DefaultModCaller : IModCaller
     {
         protected Dictionary<string, ICallHandler> CallHandlers { get; } = new();

@@ -1,6 +1,11 @@
-﻿using log4net;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
 
-namespace TomatoLib.Core.Utilities.Logging
+using log4net;
+
+namespace TomatoLib.Core.Interfaces.Logging
 {
     /// <summary>
     ///     Interface providing extended capabilities from <see cref="ILog"/>.

@@ -1,16 +1,23 @@
-﻿using System.Collections.Generic;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using MonoMod.Utils;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Core;
 using TomatoLib.Common.Utilities;
 using TomatoLib.Common.Utilities.Extensions;
-using TomatoLib.Core.Localization.Parsers;
-using TomatoLib.Core.Utilities.Localization;
+using TomatoLib.Core.Implementation.Localization.Parsers;
+using TomatoLib.Core.Interfaces.Localization;
 
-namespace TomatoLib.Core.Localization
+namespace TomatoLib.Core.Implementation.Localization
 {
+    /// <summary>
+    ///     Default implementation of <see cref="ILocalizationLoader"/>.
+    /// </summary>
     [Autoload(false)]
     public class DefaultLocalizationLoader : ILocalizationLoader
     {

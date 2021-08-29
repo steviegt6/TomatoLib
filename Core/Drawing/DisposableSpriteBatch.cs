@@ -12,12 +12,17 @@ using TomatoLib.Common.Utilities.Extensions;
 
 namespace TomatoLib.Core.Drawing
 {
-    public class DisposableSpriteBatch : IDisposable
+    /// <summary>
+    ///     Disposable class that starts and ends <see cref="Microsoft.Xna.Framework.Graphics.SpriteBatch"/>es with ease. <br />
+    ///     Provides safety with beginning and ending batches as well.
+    /// </summary>
+    public sealed class DisposableSpriteBatch : IDisposable
     {
         public readonly SpriteBatch SpriteBatch;
 
-        protected readonly SpriteBatchSnapshot CachedSnapshot;
-        protected readonly bool BeganPrior;
+        public SpriteBatchSnapshot CachedSnapshot { get; }
+
+        public bool BeganPrior { get; }
 
         // TODO: Is ref needed here?
         public DisposableSpriteBatch(SpriteBatch spriteBatch, SpriteBatchSnapshot snapshot, bool? began = null)

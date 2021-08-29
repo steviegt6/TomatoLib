@@ -1,14 +1,18 @@
-﻿using System.Collections.Generic;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria.GameContent;
 using Terraria.ModLoader;
 using TomatoLib.Common.Utilities.Extensions;
-using TomatoLib.Core.Utilities.Drawing;
+using TomatoLib.Core.Interfaces.Drawing;
 
-// design based on the split mod's design lol
-namespace TomatoLib.Core.Drawing
+namespace TomatoLib.Core.Implementation.Drawing
 {
     /// <summary>
     ///     Basic implementation of <see cref="IGlowMaskRepository"/>.

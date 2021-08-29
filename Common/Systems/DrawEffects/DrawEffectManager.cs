@@ -1,5 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using TomatoLib.Core.Drawing;
@@ -30,24 +34,13 @@ namespace TomatoLib.Common.Systems.DrawEffects
 
         public override void PostDrawTiles()
         {
-            // Draw all IDrawEffect instances
-
             SpriteBatchSnapshot snapshot = new(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null,
                 Main.GameViewMatrix.ZoomMatrix);
 
             using DisposableSpriteBatch spriteBatch = new(Main.spriteBatch, snapshot, false);
-            // Call PreDrawAll separately
-            // as we want it to be ran before
-            // actual instances are drawn
-            foreach (IDrawEffect drawEffect in DrawEffects)
-                drawEffect.PreDrawAll(spriteBatch.SpriteBatch);
 
-            foreach (IDrawEffect drawEffect in DrawEffects.Where(drawEffect =>
-                drawEffect.PreDraw(spriteBatch.SpriteBatch)))
-            {
+            foreach (IDrawEffect drawEffect in DrawEffects) 
                 drawEffect.Draw(spriteBatch.SpriteBatch);
-                drawEffect.PostDraw(spriteBatch.SpriteBatch);
-            }
         }
     }
 }

@@ -1,4 +1,9 @@
-﻿using System;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 
@@ -6,10 +11,6 @@ namespace TomatoLib.Common.Systems.DrawEffects
 {
     public abstract class BaseDrawEffect : Entity, IDrawEffect
     {
-        public virtual float Scale { get; set; } = 1f;
-
-        public virtual float[] SyncedData { get; set; } = new float[3];
-
         public Action Destroy { get; }
 
         public bool ScheduledForDeletion { get; set; }
@@ -19,17 +20,7 @@ namespace TomatoLib.Common.Systems.DrawEffects
             Destroy += () => ScheduledForDeletion = true;
         }
 
-        public virtual void PreDrawAll(SpriteBatch spriteBatch)
-        {
-        }
-
-        public virtual bool PreDraw(SpriteBatch spriteBatch) => true;
-
         public virtual void Draw(SpriteBatch spriteBatch)
-        {
-        }
-
-        public virtual void PostDraw(SpriteBatch spriteBatch)
         {
         }
 

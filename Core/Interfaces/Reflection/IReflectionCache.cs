@@ -1,7 +1,12 @@
-﻿using System;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System;
 using System.Reflection;
 
-namespace TomatoLib.Core.Utilities.Reflection
+namespace TomatoLib.Core.Interfaces.Reflection
 {
     /// <summary>
     ///     Interface for caching reflection.
@@ -12,7 +17,7 @@ namespace TomatoLib.Core.Utilities.Reflection
         ///     Invokes the specified method defined in the type of the provided <see cref="FieldInfo"/>.
         /// </summary>
         object InvokeUnderlyingMethod(FieldInfo info, string methodName, object instance,
-    params object[] parameters);
+            params object[] parameters);
 
         /// <summary>
         ///     Invokes the specified method defined in the type of the provided <see cref="PropertyInfo"/>.

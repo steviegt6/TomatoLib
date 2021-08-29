@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace TomatoLib.Core.Utilities.Reflection
+namespace TomatoLib.Common.Utilities
 {
     /// <summary>
     ///     Provides simplistic reflection-related utilities.

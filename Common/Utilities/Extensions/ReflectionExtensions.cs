@@ -1,7 +1,12 @@
-﻿using System;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System;
 using System.Reflection;
-using TomatoLib.Core.Reflection;
-using TomatoLib.Core.Utilities.Reflection;
+using TomatoLib.Core.Implementation.Reflection;
+using TomatoLib.Core.Interfaces.Reflection;
 
 namespace TomatoLib.Common.Utilities.Extensions
 {

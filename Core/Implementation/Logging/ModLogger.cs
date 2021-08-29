@@ -1,9 +1,14 @@
-﻿using System;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System;
 using log4net;
 using log4net.Core;
-using TomatoLib.Core.Utilities.Logging;
+using TomatoLib.Core.Interfaces.Logging;
 
-namespace TomatoLib.Core.Logging
+namespace TomatoLib.Core.Implementation.Logging
 {
     /// <summary>
     ///     Basic implementation of <see cref="IModLogger"/>.

@@ -1,4 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using TomatoLib.Common.Utilities.Extensions;
@@ -12,7 +17,7 @@ namespace TomatoLib.Common.Assets
     ///     You must be careful when creating a new noise instance, as <see cref="Texture2DHelpers.GetColors"/> is used. <br />
     ///     This will break if the instance is not created on the main thread. Thanks, FNA.
     /// </remarks>
-    public struct Noise
+    public struct NoiseAsset
     {
         /// <summary>
         ///     The noise's texture, wrapped in an <see cref="Asset{T}"/>.
@@ -27,7 +32,7 @@ namespace TomatoLib.Common.Assets
         /// <summary>
         ///     Initializes a new instance.
         /// </summary>
-        public Noise(Asset<Texture2D> texture)
+        public NoiseAsset(Asset<Texture2D> texture)
         {
             Texture = texture;
             NoiseData = texture.Value.GetColors();

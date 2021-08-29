@@ -1,3 +1,8 @@
+#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +12,14 @@ using MonoMod.RuntimeDetour;
 using MonoMod.RuntimeDetour.HookGen;
 using Terraria.ModLoader;
 using TomatoLib.Common.Utilities.Extensions;
-using TomatoLib.Core.Compatibility.Calls;
-using TomatoLib.Core.Drawing;
-using TomatoLib.Core.Localization;
-using TomatoLib.Core.Logging;
-using TomatoLib.Core.MonoModding;
-using TomatoLib.Core.Reflection;
-using TomatoLib.Core.Utilities.Compatibility.Calls;
-using TomatoLib.Core.Utilities.Localization;
-using TomatoLib.Core.Utilities.Logging;
+using TomatoLib.Core.Implementation.Compatibility.Calls;
+using TomatoLib.Core.Implementation.Drawing;
+using TomatoLib.Core.Implementation.Localization;
+using TomatoLib.Core.Implementation.Logging;
+using TomatoLib.Core.Implementation.Reflection;
+using TomatoLib.Core.Interfaces.Compatibility.Calls;
+using TomatoLib.Core.Interfaces.Localization;
+using TomatoLib.Core.Interfaces.Logging;
 
 namespace TomatoLib
 {
@@ -59,6 +63,7 @@ namespace TomatoLib
 
             ExecutePrivately(() =>
             {
+                // ReSharper disable once StringLiteralTypo
                 this.CreateDetour(typeof(LocalizationLoader).GetCachedMethod("Autoload"),
                     GetType().GetCachedMethod(nameof(AutoLoadLocalization)));
             });

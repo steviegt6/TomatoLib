@@ -9,6 +9,9 @@ using TomatoLib.Common.Utilities.Extensions;
 
 namespace TomatoLib.Core.Drawing
 {
+    /// <summary>
+    ///     Records <see cref="SpriteBatch"/> drawing parameters.
+    /// </summary>
     public readonly struct SpriteBatchSnapshot
     {
         public SpriteSortMode SortMode { get; }
@@ -36,9 +39,15 @@ namespace TomatoLib.Core.Drawing
             TransformMatrix = transformMatrix;
         }
 
+        /// <summary>
+        ///     Starts a <see cref="SpriteBatch"/> using the recorded parameters.
+        /// </summary>
         public void BeginSpriteBatch(SpriteBatch spriteBatch) => spriteBatch.Begin(SortMode, BlendState,
             SamplerState, DepthStencilState, RasterizerState, Effect, TransformMatrix);
 
+        /// <summary>
+        ///     Generates a <see cref="SpriteBatchSnapshot"/> instance.
+        /// </summary>
         public static SpriteBatchSnapshot FromSpriteBatch(SpriteBatch spriteBatch)
         {
             SpriteSortMode sortMode = spriteBatch.GetFieldValue<SpriteBatch, SpriteSortMode>("sortMode");

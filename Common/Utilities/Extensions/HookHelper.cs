@@ -1,4 +1,9 @@
-﻿using System;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using MonoMod.Cil;
@@ -6,7 +11,7 @@ using MonoMod.RuntimeDetour;
 using MonoMod.RuntimeDetour.HookGen;
 using Terraria.ModLoader;
 
-namespace TomatoLib.Core.MonoModding
+namespace TomatoLib.Common.Utilities.Extensions
 {
     /// <summary>
     ///     Provides tools for aiding MonoMod hook creation.

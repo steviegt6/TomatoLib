@@ -16,10 +16,7 @@
 
   <ItemGroup>
     <Folder Include="Content\UI\Elements\" />
-    <Folder Include="Core\Compatibility\Calls\" />
-    <Folder Include="Core\MonoModding\" />
-    <Folder Include="Core\Utilities\Compatibility\Calls\" />
-    <Folder Include="Core\Utilities\Localization\" />
+    <Folder Include="Core\Interfaces\Localization\" />
   </ItemGroup>
 
   <ItemGroup>

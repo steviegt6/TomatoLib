@@ -1,11 +1,17 @@
-﻿using System;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using TomatoLib.Common.Utilities;
 using TomatoLib.Common.Utilities.Extensions;
-using TomatoLib.Core.Utilities.Reflection;
+using TomatoLib.Core.Interfaces.Reflection;
 
-namespace TomatoLib.Core.Reflection
+namespace TomatoLib.Core.Implementation.Reflection
 {
     /// <summary>
     ///     Basic implementation of <see cref="IReflectionCache"/>.
@@ -26,7 +32,7 @@ namespace TomatoLib.Core.Reflection
             GenerateEmptyCache(ref Cache, ReflectionType.Type);
             GenerateEmptyCache(ref Cache, ReflectionType.NestedType);
         }
-
+        
         private static void GenerateEmptyCache(ref Dictionary<ReflectionType, Dictionary<string, object>> dictionary,
             ReflectionType reflectionType) => dictionary.Add(reflectionType, new Dictionary<string, object>());
 

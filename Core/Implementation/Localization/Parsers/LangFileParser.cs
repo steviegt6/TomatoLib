@@ -1,10 +1,18 @@
-﻿using System.Collections.Generic;
+﻿#region License
+// Copyright (C) 2021 Tomat and Contributors
+// GNU General Public License Version 3, 29 June 2007
+#endregion
+
+using System.Collections.Generic;
 using System.IO;
 using Terraria.ModLoader;
-using TomatoLib.Core.Utilities.Localization;
+using TomatoLib.Core.Interfaces.Localization;
 
-namespace TomatoLib.Core.Localization.Parsers
+namespace TomatoLib.Core.Implementation.Localization.Parsers
 {
+    /// <summary>
+    ///     Parses <c>.lang</c> files for localization.
+    /// </summary>
     public class LangFileParser : ILocalizationFileParser
     {
         public IDictionary<string, ModTranslation> ParseText(Mod mod, string culture, string text,

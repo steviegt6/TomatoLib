@@ -6,9 +6,9 @@ using System.Linq;
 namespace TomatoLib.Common.Utilities
 {
     /// <summary>
-    ///     Object that can equate and compare to multiple strings.
+    ///     Object that can equate to and compare multiple strings.
     /// </summary>
-    public class StringMatcher : IComparable<string>, IEquatable<string>, IEnumerable<string>
+    public class StringMatcher : IComparable<string>, IEquatable<string>, IEnumerable<string>, IEquatable<StringMatcher>
     {
         public virtual IEnumerable<string> Strings { get; }
 
@@ -19,22 +19,6 @@ namespace TomatoLib.Common.Utilities
 
         public int CompareTo(string other)
         {
-            /*
-             *         public int CompareTo(object? value)
-        {
-            if (value == null)
-            {
-                return 1;
-            }
-
-            if (!(value is string other))
-            {
-                throw new ArgumentException(SR.Arg_MustBeString);
-            }
-
-            return CompareTo(other); // will call the string-based overload
-        }
-             */
             if (other is null || !Strings.Contains(other))
                 return 1;
 
@@ -44,6 +28,21 @@ namespace TomatoLib.Common.Utilities
         }
 
         public bool Equals(string other) => Strings.Any(x => x.Equals(other));
+
+        public bool Equals(StringMatcher other) => other is not null && Strings.Any(x => other.Strings.Contains(x));
+
+        public override bool Equals(object obj)
+        {
+            return obj switch
+            {
+                null => false,
+                string str => Equals(str),
+                StringMatcher matcher => Equals(matcher),
+                _ => obj.GetHashCode() == GetHashCode()
+            };
+        }
+
+        public override int GetHashCode() => Strings != null ? Strings.GetHashCode() : 0;
 
         public IEnumerator<string> GetEnumerator() => Strings.GetEnumerator();
 
