@@ -24,7 +24,6 @@ namespace TomatoLib.Core.Drawing
 
         public bool BeganPrior { get; }
 
-        // TODO: Is ref needed here?
         public DisposableSpriteBatch(SpriteBatch spriteBatch, SpriteBatchSnapshot snapshot, bool? began = null)
         {
             bool realBegan = began ?? SpriteBatch.GetFieldValue<SpriteBatch, bool>("beginCalled");
