@@ -43,14 +43,7 @@ namespace TomatoLib
         public List<(MethodInfo, Delegate)> DelegatesToRemove = new();
         public List<Hook> HooksToRemove = new();
 
-        public TomatoMod()
-        {
-            ExecutePrivately(() =>
-            {
-                ReflectionCache.Instance = new ReflectionCache();
-                GlowMaskRepository.Instance = new GlowMaskRepository();
-            });
-        }
+        private static bool DetouredAutoLoad;
 
         public override void Load()
         {
@@ -61,12 +54,12 @@ namespace TomatoLib
             // This is a temporary fix for some methods in HookHelper.
             ExecutePrivately(MonoModHooks.RequestNativeAccess);
 
-            ExecutePrivately(() =>
-            {
+            // Don't execute this privately to ensure the method is modified
+            // if TomatoLib is referenced as a dependency but not loaded as a mod
+            if (!DetouredAutoLoad)
                 // ReSharper disable once StringLiteralTypo
                 this.CreateDetour(typeof(LocalizationLoader).GetCachedMethod("Autoload"),
                     GetType().GetCachedMethod(nameof(AutoLoadLocalization)));
-            });
         }
 
         public override void Unload()
@@ -86,6 +79,7 @@ namespace TomatoLib
 
             ExecutePrivately(() =>
             {
+                // If a mod isn't depending on TomatoLib, it's their job to take care of this.
                 ReflectionCache.Instance = null;
 
                 GlowMaskRepository.Instance.RemoveGlowMasks();
@@ -97,6 +91,8 @@ namespace TomatoLib
 
         private static void AutoLoadLocalization(Action<Mod> orig, Mod mod)
         {
+            DetouredAutoLoad = true;
+
             orig(mod);
 
             if (mod is TomatoMod tomatoMod)
