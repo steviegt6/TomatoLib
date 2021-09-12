@@ -20,7 +20,7 @@ namespace TomatoLib.Core.Implementation.Reflection
     {
         private readonly Dictionary<ReflectionType, Dictionary<string, object>> Cache;
 
-        public static IReflectionCache Instance { get; set; }
+        public static IReflectionCache Instance { get; set; } = new ReflectionCache();
 
         public ReflectionCache()
         {

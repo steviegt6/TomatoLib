@@ -19,7 +19,7 @@ namespace TomatoLib.Core.Implementation.Drawing
     /// </summary>
     public class GlowMaskRepository : IGlowMaskRepository
     {
-        public static IGlowMaskRepository Instance { get; set; }
+        public static IGlowMaskRepository Instance { get; set; } = new GlowMaskRepository();
 
         public readonly Dictionary<string, short> GlowMaskCollection;
 

@@ -43,15 +43,6 @@ namespace TomatoLib
         public List<(MethodInfo, Delegate)> DelegatesToRemove = new();
         public List<Hook> HooksToRemove = new();
 
-        public TomatoMod()
-        {
-            ExecutePrivately(() =>
-            {
-                ReflectionCache.Instance = new ReflectionCache();
-                GlowMaskRepository.Instance = new GlowMaskRepository();
-            });
-        }
-
         public override void Load()
         {
             base.Load();
