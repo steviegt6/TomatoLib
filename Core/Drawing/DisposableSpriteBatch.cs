@@ -26,7 +26,7 @@ namespace TomatoLib.Core.Drawing
 
         public DisposableSpriteBatch(SpriteBatch spriteBatch, SpriteBatchSnapshot snapshot, bool? began = null)
         {
-            bool realBegan = began ?? SpriteBatch.GetFieldValue<SpriteBatch, bool>("beginCalled");
+            bool realBegan = began ?? spriteBatch.GetFieldValue<SpriteBatch, bool>("beginCalled");
 
             if (realBegan)
                 spriteBatch.End();
