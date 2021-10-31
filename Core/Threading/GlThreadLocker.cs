@@ -14,7 +14,7 @@ using TomatoLib.Common.Systems;
 
 namespace TomatoLib.Core.Threading
 {
-    public sealed class GlCallLocker : SingletonSystem<GlCallLocker>
+    public sealed class GlThreadLocker : SingletonSystem<GlThreadLocker>
     {
         private int? MainThreadId;
         [CanBeNull] private List<Action> Actions;
@@ -57,7 +57,7 @@ namespace TomatoLib.Core.Threading
             }
 
             if (Lock == null)
-                throw new Exception("Lock object was null when attempting to invoke function in GlCallLocker.");
+                throw new Exception("Lock object was null when attempting to invoke function in GlThreadLocker.");
 
             object lockObject = Lock.LockObject;
             lock (lockObject)
