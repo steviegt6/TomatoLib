@@ -34,8 +34,15 @@ namespace TomatoLib.Common.Systems.DrawEffects
 
         public override void PostDrawTiles()
         {
-            SpriteBatchSnapshot snapshot = new(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null,
-                Main.GameViewMatrix.ZoomMatrix);
+            SpriteBatchSnapshot snapshot = new(
+                SpriteSortMode.Deferred,
+                BlendState.AlphaBlend,
+                null,
+                null,
+                null,
+                null,
+                Main.GameViewMatrix.ZoomMatrix
+            );
 
             using DisposableSpriteBatch spriteBatch = new(Main.spriteBatch, snapshot, false);
 

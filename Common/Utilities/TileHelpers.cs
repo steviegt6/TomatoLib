@@ -87,8 +87,16 @@ namespace TomatoLib.Common.Utilities
         ///     The tile will not be replaced with the returned tile is that of a dummy instance.
         /// </remarks>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if <paramref name="placementType"/> has an unexpected value.</exception>
-        public static Tile ParanoidTilePlacement(int x, int y, int id, PlacementType placementType, bool mute = false,
-            bool forced = false, int player = -1, int style = 0)
+        public static Tile ParanoidTilePlacement(
+            int x,
+            int y,
+            int id,
+            PlacementType placementType,
+            bool mute = false,
+            bool forced = false,
+            int player = -1,
+            int style = 0
+        )
         {
             Tile tile = ParanoidTileRetrieval(x, y, out bool inWorld);
 
@@ -125,8 +133,13 @@ namespace TomatoLib.Common.Utilities
         ///     All rules in <see cref="ParanoidTileRetrieval(int, int, out bool)"/> apply here. This includes the creation of dummy tiles. <br />
         ///     Dummy tiles will not be attempted to be killed.
         /// </remarks>
-        public static void ParanoidKillTile(int x, int y, bool fail = false, bool effectOnly = false,
-            bool noItem = false)
+        public static void ParanoidKillTile(
+            int x,
+            int y,
+            bool fail = false,
+            bool effectOnly = false,
+            bool noItem = false
+        )
         {
             ParanoidTileRetrieval(x, y, out bool inWorld);
 

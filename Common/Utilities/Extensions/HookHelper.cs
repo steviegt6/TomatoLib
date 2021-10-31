@@ -5,7 +5,6 @@
 
 using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using MonoMod.Cil;
 using MonoMod.RuntimeDetour;
 using MonoMod.RuntimeDetour.HookGen;
@@ -41,7 +40,6 @@ namespace TomatoLib.Common.Utilities.Extensions
         /// <param name="modifiedMethod">The method to modify.</param>
         /// <param name="modifyingMethod">The method doing the modifying.</param>
         /// <param name="mod">The <see cref="TomatoMod"/> instance to add to.</param>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void CreateDetour(this TomatoMod mod, MethodInfo modifiedMethod, MethodInfo modifyingMethod)
         {
             Hook hook = new(modifiedMethod, modifyingMethod);

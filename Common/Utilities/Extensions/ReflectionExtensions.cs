@@ -10,6 +10,9 @@ using TomatoLib.Core.Interfaces.Reflection;
 
 namespace TomatoLib.Common.Utilities.Extensions
 {
+    /// <summary>
+    ///     Tons of extension methods for reflection.
+    /// </summary>
     public static class ReflectionExtensions
     {
         /// <inheritdoc cref="IReflectionCache.InvokeUnderlyingMethod(FieldInfo, string, object, object[])"/>.
