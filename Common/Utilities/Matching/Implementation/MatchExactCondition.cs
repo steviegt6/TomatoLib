@@ -16,7 +16,7 @@ namespace TomatoLib.Common.Utilities.Matching.Implementation
             Matchable = toMatch;
         }
 
-        public MatchExactCondition(TMatcher toMatch) : this(toMatch.AsArray())
+        public MatchExactCondition(TMatcher toMatch) : this(new[] { toMatch })
         {
         }
 

@@ -20,8 +20,11 @@ namespace TomatoLib.Common.Utilities.Matching
             Conditions = new List<IMatchCondition<TMatcher>>();
         }
 
-        public virtual Matcher<TMatcher> WithCondition(IMatchCondition<TMatcher> condition) =>
-            Builder.Do(this, () => Conditions.Add(condition));
+        public virtual Matcher<TMatcher> WithCondition(IMatchCondition<TMatcher> condition)
+        {
+            Conditions.Add(condition);
+            return this;
+        }
 
         public virtual bool Match(TMatcher matcher) => MatchType switch
         {
